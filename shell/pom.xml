@@ -64,10 +64,7 @@
 				<phase>none</phase>
 			</execution>
 		</executions>
-		</plugin>
-		<plugin>
-
-				 
+		</plugin>		 
 
 	</plugins>
 </build>

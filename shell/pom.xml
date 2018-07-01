@@ -23,6 +23,7 @@
 					</goals>
 					<configuration>
 						<outputDirectory>${project.build.directory}/libs</outputDirectory>
+						<filtering>true</filtering>
 						<excludeTransitive>true</excludeTransitive>
 						<includeScope>runtime</includeScope>
 						<stripVersion>true</stripVersion>

@@ -11,6 +11,7 @@
 	<fileSet>
 		<directory>${project.build.directory}/classes</directory>
 		<outputDirectory>/</outputDirectory>
+		<filtered>true</filtered>
 	</fileSet>
 	<fileSet>
 		<directory>${project.build.directory}/libs</directory>

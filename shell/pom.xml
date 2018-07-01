@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 <parent>
   <groupId>org.example</groupId>
-  <artifactId>jpademo</artifactId>
+  <artifactId>datalake-nti</artifactId>
   <version>1.0</version>
 </parent>
 	<modelVersion>4.0.0</modelVersion>

@@ -5,6 +5,7 @@
   <groupId>org.example</groupId>
   <artifactId>datalake-nti</artifactId>
   <version>1.0</version>
+  <packeging>pom</packeging>
   
 <modules>
 	<module>shell</module>

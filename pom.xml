@@ -10,15 +10,6 @@
 <modules>
 	<module>shell</module>
 </modules>
-<profiles>
-	<profile>
-		<id>devl</id>
-		<properties>
-			<user.name>us9pusr></user.name>
-		
-		</properties>
-	</profile>
-</profiles>
   
 
 

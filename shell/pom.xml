@@ -7,8 +7,72 @@
 </parent>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>datalake-us9-nti-shell</artifactId>
+
+    <!-- Profiles configuration -->
+    <profiles>
+        <!-- The configuration of the development profile -->
+        <profile>
+            <id>d</id>
+            <!-- The development profile is active by default -->
+            <properties>
+                <!--
+                    Specifies the build.profile.id property that must be equal than the name of
+                    the directory that contains the profile specific configuration file.
+                    Because the name of the directory that contains the configuration file of the
+                    development profile is dev, we must set the value of the build.profile.id property to dev.
+                -->
+                <build.profile.id>devl</build.profile.id>
+            </properties>
+        </profile>
+        <!-- The configuration of the production profile -->
+        <profile>
+            <id>p</id>
+            <properties>
+                <!--
+                    Specifies the build.profile.id property that must be equal than the name of
+                    the directory that contains the profile specific configuration file.
+                    Because the name of the directory that contains the configuration file of the
+                    production profile is prod, we must set the value of the build.profile.id property to prod.
+                -->
+                <build.profile.id>prod</build.profile.id>
+            </properties>
+        </profile>
+        <!-- The configuration of the testing profile -->
+        <profile>
+            <id>u</id>
+            <properties>
+                <!--
+                    Specifies the build.profile.id property that must be equal than the name of
+                    the directory that contains the profile specific configuration file.
+                    Because the name of the directory that contains the configuration file of the
+                    testing profile is test, we must set the value of the build.profile.id property to test.
+                -->
+                <build.profile.id>uacc</build.profile.id>
+            </properties>
+        </profile>
+    </profiles>
 	
 <build>
+
+	<finalName>maven-properties-filtering</finalName>
+        <filters>
+            <!--
+                Ensures that the config.properties file is always loaded from the
+		        configuration directory of the active Maven profile. 
+            -->
+            <filter>profiles/${build.profile.id}/config.properties</filter>
+        </filters>
+        <resources>
+            <!--
+                Placeholders that are found from the files located in the configured resource
+                directories are replaced with the property values found from the profile
+                specific configuration file.
+            -->
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
 	<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -57,21 +121,6 @@
 				<phase>none</phase>
 			</execution>
 		</executions>
-		</plugin>
-		<plugin>
-		 <groupId>org.apache.maven.plugins</groupId>
-		 <artifactId>maven-resources-plugin</artifactId>
-		 <version>2.3</version>
-		 <configuration>
-		   <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
-		   <encoding>UTF-8</encoding>
-		   <resources>
-			 <resource>
-			   <directory>src/main/resources/jobs/nti/properties</directory>
-			   <filtering>true</filtering>
-			 </resource>
-			</resources>
-		 </configuration>
 		</plugin>
 
 	</plugins>
